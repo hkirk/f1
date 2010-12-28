@@ -1,10 +1,12 @@
 <?php
 
-include("../includes/database/database.php");
-include("../includes/database/SQL.php");
-include("../includes/database/MySQL.php");
-include("../includes/TimeUtils.php");
-include("F1Constants.php");
+include("F1Helper.php");
+include("Content.php");
+
+include("lib/database.php");
+include("lib/SQL.php");
+include("lib/MySQL.php");
+
 
 $db = new MySQL();
 
@@ -48,7 +50,7 @@ if (isset($_POST['time'])) {
 if ($validateTime && isset($_POST['name'])) {
   $error = false;
   $sql = "INSERT INTO f1_track_times VALUES ('', '" . $_POST['track']
-    . "', '" . $_POST['type'] . "', '" . $_POST['tyre'] . "', " . $_POST['car']
+    . "', '" . $_POST['type'] . "', '" . $_POST['tyre'] . "', '" . $_POST['car']
     . "', '". $_POST['name'] . "', '" . $_POST['time'] . "', " . time() . ")";
   $result = $db->sql_query($sql);
   if (!$result) {
@@ -76,14 +78,14 @@ if ($validateTime && isset($_POST['name'])) {
           }
 
         ?>
-        <form method="post" action="./f1.php">
+        <form method="post" action="./index.php">
           <table>
             <tr>
               <td>Race:</td>
               <td>
                 <select name="track">
                   <?
-                  $races = F1Constants::getRaces();
+                  $races = F1Helper::getRaces();
                   for ($i=0; $i < sizeof($races); $i++) {
                     echo "<option value=\"" . $i . "\">". $races[$i] . "</option>\n";
                   }
@@ -96,7 +98,7 @@ if ($validateTime && isset($_POST['name'])) {
               <td>
                 <select name="type">
                   <?
-                  $type = F1Constants::getTypes();
+                  $type = F1Helper::getTypes();
                   for ($i=0; $i < sizeof($type); $i++) {
                     echo "<option value=\"" . $i . "\">". $type[$i] . "</option>\n";
                   }
@@ -109,7 +111,7 @@ if ($validateTime && isset($_POST['name'])) {
               <td>
                 <select name="tyre">
                   <?
-                  $tyre = F1Constants::getTyres();
+                  $tyre = F1Helper::getTyres();
                   for ($i=0; $i < sizeof($tyre); $i++) {
                     echo "<option value=\"" . $i . "\">". $tyre[$i] . "</option>\n";
                   }
@@ -122,7 +124,7 @@ if ($validateTime && isset($_POST['name'])) {
               <td>
                 <select name="car">
                   <?
-                  $cars = F1Constants::getCars();
+                  $cars = F1Helper::getCars();
                   for ($i=0; $i < sizeof($cars); $i++) {
                     echo "<option value=\"" . $i . "\">". $cars[$i] . "</option>\n";
                   }
@@ -165,7 +167,7 @@ if ($validateTime && isset($_POST['name'])) {
               echo "<tr><td>" . $row['name'] . "</td><td>"
                 . $races[$row['track']] . "</td><td>" . $cars[$row['car']]
                 . "</td><td>" . $row['time']
-                . "</td><td>" . TimeUtils::strtodate($row['date'])
+                . "</td><td>" . F1Helper::strtodate($row['date'])
                 . "</td></tr>";
             }
             ?>
