@@ -26,11 +26,11 @@ class F1Helper {
 
   // Cars
   public static function getCars() {
-    return array(0 => "RBR-Renault", 1 => "McLaren-Macedes",
-        2 => "Farrari", 3 => "Macedes-GP", 4 => "Renault",
-        5 => "Williams-Cosworth", 6 => "Force India-Macedes",
-        7 => "BMW Sauber-Farrari", 8 => "STR-Farrai", 9 => "Lotus-Cosworth",
-        10 => "HRT-Cosworth", 11 => "Virgen-Cosworth");
+    return array(0 => "RBR-Renault", 1 => "McLaren-Mercedes",
+        2 => "Ferrari", 3 => "Mercedes-GP", 4 => "Renault",
+        5 => "Williams-Cosworth", 6 => "Force India-Mercedes",
+        7 => "BMW Sauber-Ferrari", 8 => "STR-Ferrari", 9 => "Lotus-Cosworth",
+        10 => "HRT-Cosworth", 11 => "Virgin-Cosworth");
   }
 
   public static function strtodate($time) {
