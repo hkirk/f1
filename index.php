@@ -161,7 +161,7 @@ if ($validateTime && isset($_POST['name'])) {
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT * FROM f1_track_times ORDER BY track ASC, time ACS, car ASC";
+            $sql = "SELECT * FROM f1_track_times ORDER BY track ASC, time ASC, car ASC";
             $result = $db->sql_query($sql);
             while($row = mysql_fetch_assoc($result)) {
               echo "<tr><td>" . $row['name'] . "</td><td>"
