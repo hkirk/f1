@@ -16,7 +16,11 @@ class F1Helper {
 
   // Race types
   public static function getTypes() {
-    return array(0 => "Practice", 1 => "Qualifying", 2 => "Race");
+    return array(0 => "Practice", 1 => "Qualifying", 2 => "Race", 3 => "TimeTrial");
+  }
+
+  public static function getStandardType() {
+    return 3;
   }
 
   // Tyre types
@@ -30,7 +34,11 @@ class F1Helper {
         2 => "Ferrari", 3 => "Mercedes-GP", 4 => "Renault",
         5 => "Williams-Cosworth", 6 => "Force India-Mercedes",
         7 => "BMW Sauber-Ferrari", 8 => "STR-Ferrari", 9 => "Lotus-Cosworth",
-        10 => "HRT-Cosworth", 11 => "Virgin-Cosworth");
+        10 => "HRT-Cosworth", 11 => "Virgin-Cosworth", 12 => "TimeTrial car");
+  }
+
+  public static function getStandardCar() {
+    return 12;
   }
 
   public static function strtodate($time) {

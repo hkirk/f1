@@ -100,7 +100,11 @@ if ($validateTime && isset($_POST['name'])) {
                   <?
                   $type = F1Helper::getTypes();
                   for ($i=0; $i < sizeof($type); $i++) {
-                    echo "<option value=\"" . $i . "\">". $type[$i] . "</option>\n";
+                    echo "<option value=\"" . $i . "\"";
+		    if ($i == F1Helper::getStandardType()) {
+		      echo " selected=\"selected\"";
+		    }
+		    echo ">". $type[$i] . "</option>\n";
                   }
                   ?>
                 </select>
@@ -126,7 +130,11 @@ if ($validateTime && isset($_POST['name'])) {
                   <?
                   $cars = F1Helper::getCars();
                   for ($i=0; $i < sizeof($cars); $i++) {
-                    echo "<option value=\"" . $i . "\">". $cars[$i] . "</option>\n";
+                    echo "<option value=\"" . $i . "\"";
+    		    if ($i == F1Helper::getStandardCar()) {
+		      echo " selected=\"selected\"";
+		    }
+		    echo ">". $cars[$i] . "</option>\n";
                   }
                   ?>
                 </select>
